@@ -1,0 +1,73 @@
+set term png size 1200,1000
+set output "fcfs.png"
+set xrange [0.000000:4562.000000]
+set yrange [0.400000:5.600000]
+set autoscale x
+set xlabel "time"
+set ylabel ""
+set title "fcfs"
+set ytics ("Job4" 1, "Job3" 2, "Job2" 3, "Job1" 4, "Job0" 5)
+set key outside width +2
+set grid xtics
+set palette model RGB defined ( 0 1.0 0.8 0.8, 1 1.0 0.8 1.0, 2 0.8 0.8 1.0, 3 0.8 1.0 1.0, 4 0.8 1.0 0.8, 5 1.0 1.0 0.8 )
+unset colorbox
+set object 1 rectangle from 0.000000, 4.6 to 456.000000, 5.4 fillcolor palette frac 0.00 fillstyle solid 0.8
+set object 2 rectangle from -1.000000, 4.6 to 455.000000, 5.4 fillcolor palette frac 0.11 fillstyle solid 0.8
+set object 3 rectangle from 456.000000, 4.6 to 993.000000, 5.4 fillcolor palette frac 0.22 fillstyle solid 0.8
+set object 4 rectangle from -1.000000, 4.6 to 536.000000, 5.4 fillcolor palette frac 0.33 fillstyle solid 0.8
+set object 5 rectangle from 993.000000, 4.6 to 1116.000000, 5.4 fillcolor palette frac 0.44 fillstyle solid 0.8
+set object 6 rectangle from -1.000000, 4.6 to 122.000000, 5.4 fillcolor palette frac 0.56 fillstyle solid 0.8
+set object 7 rectangle from 1116.000000, 4.6 to 1330.000000, 5.4 fillcolor palette frac 0.67 fillstyle solid 0.8
+set object 8 rectangle from -1.000000, 4.6 to 213.000000, 5.4 fillcolor palette frac 0.78 fillstyle solid 0.8
+set object 9 rectangle from 1330.000000, 4.6 to 1564.000000, 5.4 fillcolor palette frac 0.89 fillstyle solid 0.8
+set object 10 rectangle from -1.000000, 4.6 to 233.000000, 5.4 fillcolor palette frac 1.00 fillstyle solid 0.8
+set object 11 rectangle from -1.000000, 3.6 to 788.000000, 4.4 fillcolor palette frac 0.00 fillstyle solid 0.8
+set object 12 rectangle from 0.000000, 3.6 to 789.000000, 4.4 fillcolor palette frac 0.11 fillstyle solid 0.8
+set object 13 rectangle from -1.000000, 3.6 to 853.000000, 4.4 fillcolor palette frac 0.22 fillstyle solid 0.8
+set object 14 rectangle from 789.000000, 3.6 to 1643.000000, 4.4 fillcolor palette frac 0.33 fillstyle solid 0.8
+set object 15 rectangle from 1643.000000, 3.6 to 1868.000000, 4.4 fillcolor palette frac 0.44 fillstyle solid 0.8
+set object 16 rectangle from -1.000000, 3.6 to 224.000000, 4.4 fillcolor palette frac 0.56 fillstyle solid 0.8
+set object 17 rectangle from 1868.000000, 3.6 to 2396.000000, 4.4 fillcolor palette frac 0.67 fillstyle solid 0.8
+set object 18 rectangle from -1.000000, 3.6 to 527.000000, 4.4 fillcolor palette frac 0.78 fillstyle solid 0.8
+set object 19 rectangle from 2396.000000, 3.6 to 2519.000000, 4.4 fillcolor palette frac 0.89 fillstyle solid 0.8
+set object 20 rectangle from -1.000000, 3.6 to 122.000000, 4.4 fillcolor palette frac 1.00 fillstyle solid 0.8
+set object 21 rectangle from 456.000000, 2.6 to 1332.000000, 3.4 fillcolor palette frac 0.00 fillstyle solid 0.8
+set object 22 rectangle from -1.000000, 2.6 to 875.000000, 3.4 fillcolor palette frac 0.11 fillstyle solid 0.8
+set object 23 rectangle from 1332.000000, 2.6 to 1964.000000, 3.4 fillcolor palette frac 0.22 fillstyle solid 0.8
+set object 24 rectangle from -1.000000, 2.6 to 631.000000, 3.4 fillcolor palette frac 0.33 fillstyle solid 0.8
+set object 25 rectangle from 1964.000000, 2.6 to 2552.000000, 3.4 fillcolor palette frac 0.44 fillstyle solid 0.8
+set object 26 rectangle from -1.000000, 2.6 to 587.000000, 3.4 fillcolor palette frac 0.56 fillstyle solid 0.8
+set object 27 rectangle from -1.000000, 2.6 to 895.000000, 3.4 fillcolor palette frac 0.67 fillstyle solid 0.8
+set object 28 rectangle from 2552.000000, 2.6 to 3448.000000, 3.4 fillcolor palette frac 0.78 fillstyle solid 0.8
+set object 29 rectangle from -1.000000, 2.6 to 455.000000, 3.4 fillcolor palette frac 0.89 fillstyle solid 0.8
+set object 30 rectangle from 3448.000000, 2.6 to 3904.000000, 3.4 fillcolor palette frac 1.00 fillstyle solid 0.8
+set object 31 rectangle from -1.000000, 1.6 to 542.000000, 2.4 fillcolor palette frac 0.00 fillstyle solid 0.8
+set object 32 rectangle from 789.000000, 1.6 to 1332.000000, 2.4 fillcolor palette frac 0.11 fillstyle solid 0.8
+set object 33 rectangle from -1.000000, 1.6 to 144.000000, 2.4 fillcolor palette frac 0.22 fillstyle solid 0.8
+set object 34 rectangle from 1643.000000, 1.6 to 1788.000000, 2.4 fillcolor palette frac 0.33 fillstyle solid 0.8
+set object 35 rectangle from -1.000000, 1.6 to 668.000000, 2.4 fillcolor palette frac 0.44 fillstyle solid 0.8
+set object 36 rectangle from 1788.000000, 1.6 to 2457.000000, 2.4 fillcolor palette frac 0.56 fillstyle solid 0.8
+set object 37 rectangle from 2457.000000, 1.6 to 2782.000000, 2.4 fillcolor palette frac 0.67 fillstyle solid 0.8
+set object 38 rectangle from -1.000000, 1.6 to 324.000000, 2.4 fillcolor palette frac 0.78 fillstyle solid 0.8
+set object 39 rectangle from 2782.000000, 1.6 to 3571.000000, 2.4 fillcolor palette frac 0.89 fillstyle solid 0.8
+set object 40 rectangle from -1.000000, 1.6 to 788.000000, 2.4 fillcolor palette frac 1.00 fillstyle solid 0.8
+set object 41 rectangle from 1332.000000, 0.6 to 1542.000000, 1.4 fillcolor palette frac 0.00 fillstyle solid 0.8
+set object 42 rectangle from -1.000000, 0.6 to 209.000000, 1.4 fillcolor palette frac 0.11 fillstyle solid 0.8
+set object 43 rectangle from -1.000000, 0.6 to 784.000000, 1.4 fillcolor palette frac 0.22 fillstyle solid 0.8
+set object 44 rectangle from 1788.000000, 0.6 to 2573.000000, 1.4 fillcolor palette frac 0.33 fillstyle solid 0.8
+set object 45 rectangle from 2573.000000, 0.6 to 3539.000000, 1.4 fillcolor palette frac 0.44 fillstyle solid 0.8
+set object 46 rectangle from -1.000000, 0.6 to 965.000000, 1.4 fillcolor palette frac 0.56 fillstyle solid 0.8
+set object 47 rectangle from 3539.000000, 0.6 to 3686.000000, 1.4 fillcolor palette frac 0.67 fillstyle solid 0.8
+set object 48 rectangle from -1.000000, 0.6 to 146.000000, 1.4 fillcolor palette frac 0.78 fillstyle solid 0.8
+set object 49 rectangle from 3686.000000, 0.6 to 4562.000000, 1.4 fillcolor palette frac 0.89 fillstyle solid 0.8
+set object 50 rectangle from -1.000000, 0.6 to 875.000000, 1.4 fillcolor palette frac 1.00 fillstyle solid 0.8
+plot -1 title "Machine0_0" with lines linecolor palette frac 0.00  linewidth 6, \
+	-1 title "Machine0_1" with lines linecolor palette frac 0.11  linewidth 6, \
+	-1 title "Machine1_0" with lines linecolor palette frac 0.22  linewidth 6, \
+	-1 title "Machine1_1" with lines linecolor palette frac 0.33  linewidth 6, \
+	-1 title "Machine2_0" with lines linecolor palette frac 0.44  linewidth 6, \
+	-1 title "Machine2_1" with lines linecolor palette frac 0.56  linewidth 6, \
+	-1 title "Machine3_0" with lines linecolor palette frac 0.67  linewidth 6, \
+	-1 title "Machine3_1" with lines linecolor palette frac 0.78  linewidth 6, \
+	-1 title "Machine4_0" with lines linecolor palette frac 0.89  linewidth 6, \
+	-1 title "Machine4_1" with lines linecolor palette frac 1.00  linewidth 6

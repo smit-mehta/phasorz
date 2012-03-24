@@ -240,9 +240,9 @@ int main( int argc, char* argv[] )
 						if (startarray[j] == -1)
 							endarray[j] = -1;
 						else
-						{	endarray[j] = ans[j][i][kk]+job[j].proctime[i];
+							endarray[j] = ans[j][i][kk]+job[j].proctime[i];
 						
-					fprintf(out2, "Machine%d_%d\t%d\t%d\tJob%d\n", i, kk, ans[j][i][kk], ans[j][i][kk]+job[j].proctime[i], j); }
+					fprintf(out2, "Machine%d_%d\t%d\t%d\tJob%d\n", i, kk, ans[j][i][kk], ans[j][i][kk]+job[j].proctime[i], j);
 				}
 				
 				qsort(startarray, njobs, sizeof(int), sort);
