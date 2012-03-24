@@ -11,7 +11,7 @@ typedef struct jobtype {
                 
 } jobtype;
 
-void updatejob(int machine_no1, int machine_no2, int** machinejob, int** machinetime, int* cycle, int ***ans, int time, int njobs, int nmachs, jobtype* job, int** allotted)
+void updatejob(int machine_no1, int machine_no2, int** machinejob, int** machinetime, int* cycle, int **ans, int time, int njobs, int nmachs, jobtype* job, int** allotted)
 {
 	int i;
 	if (machinejob[machine_no1][machine_no2] >= 0 && cycle[machinejob[machine_no1][machine_no2]] != nmachs)
@@ -31,7 +31,7 @@ void updatejob(int machine_no1, int machine_no2, int** machinejob, int** machine
 			machinetime[machine_no1][machine_no2] = job[i].proctime[machine_no1];
 			machinejob[machine_no1][machine_no2] = i;
 			allotted[i][cycle[i]] = 1;
-			ans[i][machine_no1][machine_no2] = time;
+			ans[i][machine_no1] = time;
 			printf("*Job : %d Machine %d Part time %d Time %d\n", i, machine_no1, job[i].proctime[machine_no1], time);
 			return;
 		}
@@ -124,7 +124,7 @@ int main( int argc, char* argv[] )
         
         int time = 0, flag = 0;
 		int cycle[njobs];
-		int*** ans;
+		int** ans;
 		int** machinetime;
 		int** machinejob;
 		int** allotted;
@@ -144,23 +144,15 @@ int main( int argc, char* argv[] )
 		}
 		
 		
-		ans = (int***) (malloc (njobs * sizeof(int**)));
+		ans = (int**) (malloc (njobs * sizeof(int*)));
 		allotted = (int**) (malloc (njobs * sizeof(int*)));
 		
 		for(i=0; i<njobs; i++)
 		{
-			ans[i] = (int**) (malloc (nmachs * sizeof(int*)));
-		
-			for(j=0; j<nmachs; j++)
-			{
-				ans[i][j] = calloc(max, sizeof(int));
-			}
-			
+			ans[i] = calloc (nmachs, sizeof(int));
 			allotted[i] = calloc (nmachs, sizeof(int));
 			cycle[i] = 0;
 		}
-		
-				
 		
 		int min = 0;
 		
@@ -202,14 +194,9 @@ int main( int argc, char* argv[] )
 			printf("JOB %d: ", i);
 				
 				for (j = 0; j < nmachs; j++) {
-					printf(" Machine : %d ", j);
-					for(k=0; k<max; k++)
-					{
-                        printf("%d ", ans[i][j][k]);
+                        printf("%d ", ans[i][j]);
         
-					fprintf(out, "Job%d\t%d\t%d\tMachine%d-%d\n", i, ans[i][j], ans[i][j]+job[i].proctime[j], j, k);
-				}
-				printf("\n");
+					fprintf(out, "Job%d\t%d\t%d\tMachine%d\n", i, ans[i][j], ans[i][j]+job[i].proctime[j], j);
 				}
                 printf ("\n");
         }
