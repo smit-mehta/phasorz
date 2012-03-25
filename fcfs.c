@@ -271,6 +271,7 @@ int main( int argc, char* argv[] )
 				
         }
 		}
+		time--;
 		
 		printf("\nWeighted per2 : %0.2f, Weighted per1 : %0.2f\n", wper1/wp1, wper2/wp2);
 		
