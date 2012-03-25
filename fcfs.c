@@ -211,8 +211,8 @@ int main( int argc, char* argv[] )
 						
 					for(k=0; k<max; k++)
 					{
-                        printf("M%d_%d : %4d ", j, k, ans[i][j][k]);
-        
+       			                 printf("M%d_%d : %4d ", j, k, ans[i][j][k]);
+        				if (ans[i][j][k]!=-1)
 					fprintf(out, "Job%d\t%d\t%d\tMachine%d_%d\n", i, ans[i][j][k], ans[i][j][k]+job[i].proctime[j], j, k);
 					}
 				}
@@ -222,7 +222,9 @@ int main( int argc, char* argv[] )
 		printf("\n\n");
 		
 		FILE *out2;
+		FILE *out3;
 		out2=fopen("fcfs_mach.txt", "w");
+		out3=fopen("fcfs_stats.txt", "w");
 		int startarray[njobs], waste, kk;
 		int endarray[njobs], starttime, endtime, wp1=0, wp2=0;
 		float percentage, percentage2, wper1=0, wper2=0;
@@ -272,7 +274,13 @@ int main( int argc, char* argv[] )
 		
 		printf("\nWeighted per2 : %0.2f, Weighted per1 : %0.2f\n", wper1/wp1, wper2/wp2);
 		
+		printf("\nPower time : %5d\n", wp1);
+		
+		fprintf(out3, "%d %d", time, wp1);
+		
 		fclose(out);
+		fclose(out2);
+		fclose(out3);
 		
 		printf("\nTotal time : %d\n", time);
         

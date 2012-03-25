@@ -456,6 +456,28 @@ int bestmake;
         }
 		
 		printf("Weighted per2 : %0.2f, Weighted per1 : %0.2f\n", wper1/wp1, wper2/wp2);
+		
+		printf("\nPower : %5d\n", wp1);
+		
+		FILE *in2;
+        
+
+        if ((in2 = fopen ("fcfs_stats.txt", "r")) == NULL) {
+                fprintf (stderr, "Unable to open file for input\n");
+                exit (1);
+        }
+        
+        int fcfs_time, fcfs_power;
+		float imp_time, imp_power;
+        
+        fscanf(in2, "%d %d", &fcfs_time, &fcfs_power);
+        
+		imp_time = (float)(fcfs_time - bestmake)*100 / fcfs_time;
+		imp_power = (float)(fcfs_power - wp1)*100 / fcfs_power;
+		
+		printf("Improvement in timespan : %0.2f\nImprovement in power : %0.2f\n", imp_time, imp_power);
+		
+		
 	
 }
         

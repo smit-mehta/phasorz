@@ -211,8 +211,8 @@ int main( int argc, char* argv[] )
 						
 					for(k=0; k<max; k++)
 					{
-                        printf("M%d_%d : %4d ", j, k, ans[i][j][k]);
-        
+       			                 printf("M%d_%d : %4d ", j, k, ans[i][j][k]);
+        				if (ans[i][j][k]!=-1)
 					fprintf(out, "Job%d\t%d\t%d\tMachine%d_%d\n", i, ans[i][j][k], ans[i][j][k]+job[i].proctime[j], j, k);
 					}
 				}
@@ -240,9 +240,9 @@ int main( int argc, char* argv[] )
 						if (startarray[j] == -1)
 							endarray[j] = -1;
 						else
-							endarray[j] = ans[j][i][kk]+job[j].proctime[i];
+						{	endarray[j] = ans[j][i][kk]+job[j].proctime[i];
 						
-					fprintf(out2, "Machine%d_%d\t%d\t%d\tJob%d\n", i, kk, ans[j][i][kk], ans[j][i][kk]+job[j].proctime[i], j);
+					fprintf(out2, "Machine%d_%d\t%d\t%d\tJob%d\n", i, kk, ans[j][i][kk], ans[j][i][kk]+job[j].proctime[i], j); }
 				}
 				
 				qsort(startarray, njobs, sizeof(int), sort);
@@ -271,6 +271,8 @@ int main( int argc, char* argv[] )
 		}
 		
 		printf("\nWeighted per2 : %0.2f, Weighted per1 : %0.2f\n", wper1/wp1, wper2/wp2);
+		
+		printf("\nPower time : %5d\n", wp1);
 		
 		fclose(out);
 		
