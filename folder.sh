@@ -16,7 +16,7 @@ gnuplot fcfs_mach.gpl
 gnuplot fcfs.gpl
 
 cd answers
-mkdir la31
-cp ../statistics.txt ../fcfs.png ../bottle.png ../fcfs_mach.png ../bottle_mach.png ./la31/
+mkdir la32
+cp ../statistics.txt ../fcfs.png ../bottle.png ../fcfs_mach.png ../bottle_mach.png ./la32/
 
 

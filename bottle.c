@@ -500,9 +500,10 @@ int bestmake;
                fprintf (out3, "\n");
         }
 
-		
+		fprintf(out3, "\nJobs : %d, Machines : %d\n", njobs, nmachs);
 		fprintf(out3, "\nTimespan :\tFCFS:%5d\tBN:%5d\tDiff:%5d\tDiff (\%):%0.2f\n", fcfs_time, bestmake, imp_time2, imp_time);
         fprintf(out3, "Power :\t\tFCFS:%5d\tBN:%5d\tDiff:%5d\tDiff (\%):%0.2f\n", fcfs_power, wp1, imp_power2, imp_power);
+		fprintf(out3, "Power2 : %4d\n", imp_time2 * nmachs);
 			
 }
         
