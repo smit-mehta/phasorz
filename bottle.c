@@ -35,7 +35,9 @@ testbottle ()
         mo.size = 0;
         for (j = 0; j < nmachs; j++)
                 mo.machs[j] = j;
-
+		
+		
+		
         for (j = 0; j < nmachs; j++)
                 for (i = 0; i < njobs; i++) {
                         seq[j].job[i] = -1; 
@@ -461,24 +463,47 @@ int bestmake;
 		
 		FILE *in2;
         
-
         if ((in2 = fopen ("fcfs_stats.txt", "r")) == NULL) {
                 fprintf (stderr, "Unable to open file for input\n");
                 exit (1);
         }
         
-        int fcfs_time, fcfs_power;
+        int fcfs_time, fcfs_power, imp_time2, imp_power2;
 		float imp_time, imp_power;
         
         fscanf(in2, "%d %d", &fcfs_time, &fcfs_power);
         
+		imp_time2 = fcfs_time - bestmake;
+		imp_power2 = fcfs_power - wp1;
+		
 		imp_time = (float)(fcfs_time - bestmake)*100 / fcfs_time;
 		imp_power = (float)(fcfs_power - wp1)*100 / fcfs_power;
 		
-		printf("Improvement in timespan : %0.2f\nImprovement in power : %0.2f\n", imp_time, imp_power);
+		printf("Improvement in timespan : %0.2f | %5d\nImprovement in power : %0.2f | %5d\n", imp_time, imp_time2, imp_power, imp_power2);
 		
+		FILE *out3;
+        
+        if ((out3 = fopen ("statistics.txt", "w")) == NULL) {
+                fprintf (stderr, "Unable to open file for input\n");
+                exit (1);
+        }
+        
+        fprintf(out3, "Dataset used : \n\n");
+		int t; 
+		fprintf (out3, "%s", probname);
+        for (i = 0; i < njobs; i++) {
+                for (j = 0; j < nmachs; j++) {
+                        t = job[i].order[j];
+                        fprintf (out3, "%2d %3d ", job[i].order[j],
+                                            job[i].proctime[t]);
+                }
+               fprintf (out3, "\n");
+        }
+
 		
-	
+		fprintf(out3, "\nTimespan :\tFCFS:%5d\tBN:%5d\tDiff:%5d\tDiff (\%):%0.2f\n", fcfs_time, bestmake, imp_time2, imp_time);
+        fprintf(out3, "Power :\t\tFCFS:%5d\tBN:%5d\tDiff:%5d\tDiff (\%):%0.2f\n", fcfs_power, wp1, imp_power2, imp_power);
+			
 }
         
         

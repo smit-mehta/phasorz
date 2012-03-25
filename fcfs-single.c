@@ -18,9 +18,9 @@ void updatejob(int machine_no, int* machinejob, int* machinetime, int* cycle, in
 		cycle[machinejob[machine_no]]++;
 	
 	for(i=0; i<njobs; i++)
-		printf("+ %d ", cycle[i]);
+		//printf("+ %d ", cycle[i]);
 	
-	printf("\n");
+	//printf("\n");
 	
 	for(i=0; i<njobs; i++)
 	{
@@ -31,7 +31,7 @@ void updatejob(int machine_no, int* machinejob, int* machinetime, int* cycle, in
 			machinetime[machine_no] = job[i].proctime[machine_no];
 			machinejob[machine_no] = i;
 			ans[i][machine_no] = time;
-			printf("*Job : %d Machine %d Part time %d Time %d\n", i, machine_no, job[i].proctime[machine_no], time);
+		//	printf("*Job : %d Machine %d Part time %d Time %d\n", i, machine_no, job[i].proctime[machine_no], time);
 			return;
 		}
 	}
@@ -148,13 +148,13 @@ int main( int argc, char* argv[] )
 				if (machinetime[i]<=0)
 					updatejob(i, machinejob, machinetime, cycle, ans, time, njobs, nmachs, job);
 			
-				printf("Machine : %d, Machine job : %d, Machine time : %d\n", i, machinejob[i], machinetime[i]);
+			//	printf("Machine : %d, Machine job : %d, Machine time : %d\n", i, machinejob[i], machinetime[i]);
 			}
 						
 			//min = findmin(machinetime, nmachs);
 			//time += min;
 			
-			printf("-----------------------------\n");
+			//printf("-----------------------------\n");
 			
 			time++;
 			

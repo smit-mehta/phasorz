@@ -225,7 +225,7 @@ int main( int argc, char* argv[] )
 		FILE *out3;
 		out2=fopen("fcfs_mach.txt", "w");
 		out3=fopen("fcfs_stats.txt", "w");
-		int startarray[njobs], waste, kk;
+		int startarray[njobs], waste, kk, it;
 		int endarray[njobs], starttime, endtime, wp1=0, wp2=0;
 		float percentage, percentage2, wper1=0, wper2=0;
 		
@@ -256,9 +256,17 @@ int main( int argc, char* argv[] )
 					waste += startarray[k+1] - endarray[k];
 				
 				
-				starttime = startarray[0];
+				for(it=0; it<njobs; it++)
+				{
+					if (startarray[it]>=0)
+						break;
+				}
+				
+				starttime = startarray[it];
 				endtime = endarray[njobs-1];
 				
+				if (endtime != -1)
+				{
 				percentage = 100 - ((float)waste / (endtime-starttime)) * 100;
 				percentage2 = 100 - ((float)(waste+starttime) / (endtime)) * 100;				
 				
@@ -268,7 +276,9 @@ int main( int argc, char* argv[] )
 				wp1 += (endtime-starttime);
 				wper2 += percentage2*(endtime);
 				wp2 += endtime;
-				
+				}
+				else
+					printf("\n");
         }
 		}
 		time--;
